@@ -1,0 +1,107 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: rgba(26, 31, 53, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  &.scrolled {
+    height: 60px;
+    background: rgba(26, 31, 53, 0.95);
+  }
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 1px;
+  background: linear-gradient(to right, #58b4ff, #ac7ff4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  
+  a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 8px 16px;
+    position: relative;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(88, 180, 255, 0.1) 0%, rgba(172, 127, 244, 0.1) 100%);
+      border-radius: 20px;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.3s ease;
+      z-index: -1;
+      border: 1px solid rgba(255, 255, 255, 0);
+    }
+    
+    &:hover,
+    &.active {
+      color: white;
+      transform: translateY(-1px);
+      
+      &:before {
+        opacity: 1;
+        transform: scale(1);
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+    
+    &.active {
+      background: linear-gradient(135deg, #58b4ff 0%, #ac7ff4 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+      
+      &:before {
+        background: linear-gradient(135deg, rgba(88, 180, 255, 0.15) 0%, rgba(172, 127, 244, 0.15) 100%);
+        border-color: rgba(255, 255, 255, 0.15);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+}
