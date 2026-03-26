@@ -1,59 +1,101 @@
-<section class="home-section">
-  <div class="matrix-overlay"></div>
-  <div class="home-background"></div>
+﻿<section class="home-section">
+  <div class="gradient-bg"></div>
   <div class="container">
-    <div class="hero-content">
-      <div class="photo-collage">
-        <div class="collage-item main-photo">
-          <img src="assets/images/RR_black.jpeg" alt="Main showcase" />
+    <div class="hero-wrapper">
+      <!-- Left Content -->
+      <div class="hero-text">
+        <div class="label">Welcome to my portfolio</div>
+        <h1 class="hero-title">Authentication <span class="highlight">Engineer</span></h1>
+        <p class="hero-subtitle">Specializing in Keycloak & Enterprise Security Solutions</p>
+        
+        <p class="hero-description">
+          I design and implement robust authentication systems that secure enterprise applications. 
+          With expertise in Keycloak, SSO, OAuth/OIDC protocols, and modern API security patterns, 
+          I help organizations protect their digital assets.
+        </p>
+        
+        <div class="cta-buttons">
+          <button class="btn btn-primary">View My Work</button>
+          <button class="btn btn-secondary">Get In Touch</button>
         </div>
-        <div class="collage-item small-photo top">
-          <img src="assets/images/RR.jpg" alt="Feature highlight" />
+        
+        <div class="stats-grid">
+          <div class="stat">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Projects Delivered</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Client Satisfaction</div>
+          </div>
         </div>
-        <div class="collage-item small-photo bottom">
-          <img src="assets/images/range-rover-background-photo.jpg" alt="Background detail" />
-        </div>
-        <div class="collage-overlay"></div>
       </div>
-      <div class="terminal-window">
-        <div class="terminal-header">
-          <span class="terminal-button"></span>
-          <span class="terminal-button"></span>
-          <span class="terminal-button"></span>
-        </div>
-        <div class="terminal-body">
-          <div class="typing-text">
-            <span class="prompt">visitor&#64;portfolio:~$</span> <span class="command">welcome.sh</span>
-            <div class="response">
-              <span class="success">[READY]</span> Security Systems Online
-              
-              ===================================== <br>
-              <span>Authentication Systems Specialist</span>
-              =====================================
 
-              <div class="prompt-line">Crafting Secure Enterprise Solutions</div>
-              <div class="prompt-line">Specializing in Keycloak & SSO Systems</div>
-              
-              <p>Dedicated to building robust authentication systems with Keycloak.
-              Expertise in implementing secure SSO solutions and enhancing API
-              security through role-based access control.</p>
-              
-              <a routerLink="/about" class="read-more">
-                <span class="prompt-line">[ Read More About My Journey ]</span>
-              </a>
+      <!-- Right Content - Profile Image & Cards -->
+      <div class="hero-visual">
+        <div class="profile-card">
+          <div class="image-frame">
+            <img src="assets/images/RR_black.jpeg" alt="Profile" class="profile-image" />
+          </div>
+          <div class="card-content">
+            <h3>Authentication Architect</h3>
+            <p>Keycloak & IAM Specialist</p>
+          </div>
+        </div>
+
+        <!-- Skills Cards -->
+        <div class="skills-section">
+          <div class="skill-card">
+            <div class="skill-card-content">
+              <div class="icon-wrapper">
+                <span class="icon-text">🔐</span>
+              </div>
+              <h4>Security First</h4>
+              <p>Enterprise-grade authentication</p>
+              <span class="skill-tag">Security</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card-content">
+              <div class="icon-wrapper">
+                <span class="icon-text">⚙️</span>
+              </div>
+              <h4>Keycloak Expert</h4>
+              <p>SSO & OAuth/OIDC Implementation</p>
+              <span class="skill-tag">IAM</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card-content">
+              <div class="icon-wrapper">
+                <span class="icon-text">🚀</span>
+              </div>
+              <h4>Fast & Scalable</h4>
+              <p>High-performance solutions</p>
+              <span class="skill-tag">Architecture</span>
             </div>
           </div>
         </div>
       </div>
-      <h1>Authentication Engineer</h1>
-      <p class="subtitle">Securing Enterprise Applications</p>
-      <div class="tech-stack">
-        <div class="tech-item">Keycloak</div>
-        <div class="tech-item">SSO</div>
-        <div class="tech-item">OAuth/OIDC</div>
-        <div class="tech-item">Java</div>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="tech-section">
+      <h3>Core Technologies</h3>
+      <div class="tech-tags">
+        <span class="tech-tag">Keycloak</span>
+        <span class="tech-tag">Java/Spring Boot</span>
+        <span class="tech-tag">OAuth 2.0</span>
+        <span class="tech-tag">OIDC</span>
+        <span class="tech-tag">LDAP/Active Directory</span>
+        <span class="tech-tag">PostgreSQL</span>
+        <span class="tech-tag">Docker</span>
+        <span class="tech-tag">Kubernetes</span>
       </div>
     </div>
   </div>
-  <div class="security-patterns"></div>
 </section>
