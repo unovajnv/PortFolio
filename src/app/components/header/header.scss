@@ -37,6 +37,16 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+  .logo-icon {
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(to right, #58b4ff, #ac7ff4);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
   
   &:hover {
     filter: brightness(1.1);
@@ -56,6 +66,18 @@
     position: relative;
     border-radius: 20px;
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    mat-icon {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     
     &:before {
       content: '';
@@ -91,6 +113,11 @@
       background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 600;
+
+      mat-icon {
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
       
       &:before {
         background: linear-gradient(135deg, rgba(88, 180, 255, 0.15) 0%, rgba(172, 127, 244, 0.15) 100%);
@@ -100,8 +127,88 @@
   }
 }
 
+.hamburger {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 5px;
+  padding: 8px;
+  
+  span {
+    width: 25px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    display: block;
+  }
+
+  &.active {
+    span {
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(10px, 10px);
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+    }
+  }
+}
+
 @media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
   .nav-links {
     display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    riflex-direction: row;
+      ght: 0;
+    background: rgba(26, 31, 53, 0.95);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    gap: 0;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    animation: slideDown 0.3s ease-out;
+
+    &.mobile-open {
+      display: flex;
+    }
+
+    a {
+      padding: 12px 20px;
+      border-radius: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      
+      &:before {
+        display: none;
+      }
+
+      &:hover,
+      &.active {
+        background: rgba(88, 180, 255, 0.15);
+        transform: none;
+      }
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

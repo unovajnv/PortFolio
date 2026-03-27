@@ -86,6 +86,19 @@
     color: #ffffff;
     border-bottom: 1px solid rgba(100, 255, 218, 0.15);
     letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    mat-icon {
+      color: #64ffda;
+      font-size: 24px;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
 

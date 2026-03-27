@@ -3,6 +3,9 @@
 
 @include mat.core();
 
+// Font Awesome
+@import '@fortawesome/fontawesome-free/css/all.css';
+
 $my-primary: mat.define-palette(mat.$indigo-palette);
 $my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 $my-warn: mat.define-palette(mat.$red-palette);
