@@ -33,23 +33,167 @@
   color: white;
   text-decoration: none;
   letter-spacing: 1px;
-  background: linear-gradient(to right, #58b4ff, #ac7ff4);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 2px;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  padding: 5px;
+  border-radius: 35px;
+  background: linear-gradient(135deg, rgba(88, 180, 255, 0.12) 0%, rgba(172, 127, 244, 0.08) 100%);
+  box-shadow: 
+    0 4px 15px rgba(88, 180, 255, 0.12),
+    inset 0 0 25px rgba(88, 180, 255, 0.06),
+    0 0 30px rgba(88, 180, 255, 0) /* will animate on hover */;
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(88, 180, 255, 0.3) 0%, transparent 70%);
+    opacity: 0;
+    transition: all 0.6s ease;
+    z-index: -1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 14px;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    opacity: 0;
+    animation: shimmer infinite 3s ease-in-out;
+  }
   
   .logo-icon {
-    -webkit-text-fill-color: transparent;
-    background: linear-gradient(to right, #58b4ff, #ac7ff4);
-    -webkit-background-clip: text;
-    background-clip: text;
+    color: #58b4ff;
+    animation: iconBounce 2s ease-in-out infinite;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 0 4px rgba(88, 180, 255, 0.2));
+  }
+
+  .logo-text {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    position: relative;
+    z-index: 2;
+
+    .logo-prefix {
+      color: #58b4ff;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.4s ease;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #58b4ff, transparent);
+        transition: width 0.4s ease;
+      }
+    }
+
+    .logo-dot {
+      color: #ac7ff4;
+      font-size: 28px;
+      font-weight: bold;
+      margin: 0 3px;
+      transition: all 0.4s ease;
+      animation: dotScale 2s ease-in-out infinite;
+    }
+
+    .logo-name {
+      background: linear-gradient(to right, #58b4ff, #ac7ff4);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      transition: all 0.4s ease;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        right: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #ac7ff4);
+        transition: width 0.4s ease;
+      }
+    }
   }
   
   &:hover {
-    filter: brightness(1.1);
+    background: linear-gradient(135deg, rgba(88, 180, 255, 0.25) 0%, rgba(172, 127, 244, 0.18) 100%);
+    box-shadow: 
+      0 12px 35px rgba(88, 180, 255, 0.35),
+      inset 0 0 40px rgba(88, 180, 255, 0.15),
+      0 0 40px rgba(88, 180, 255, 0.25);
+    transform: scale(1.08) translateY(-2px);
+    filter: brightness(1.15);
+
+    &::before {
+      opacity: 1;
+      animation: orbit 4s linear infinite;
+    }
+
+    &::after {
+      animation: shimmerActive 0.8s ease-in-out forwards;
+    }
+
+    .logo-icon {
+      animation: none;
+      transform: rotate(18deg) scale(1.15);
+      filter: drop-shadow(0 0 12px rgba(88, 180, 255, 0.8));
+    }
+
+    .logo-text {
+      .logo-prefix {
+        color: #64ffda;
+        filter: drop-shadow(0 0 10px rgba(100, 255, 218, 0.7));
+        
+        &::after {
+          width: 100%;
+        }
+      }
+
+      .logo-dot {
+        animation: none;
+        color: #00ffff;
+        transform: scale(1.2) rotate(180deg);
+        filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.8));
+      }
+
+      .logo-name {
+        filter: brightness(1.25) drop-shadow(0 0 8px rgba(88, 180, 255, 0.5));
+        
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &:active {
+    transform: scale(1.04) translateY(0);
   }
 }
 
@@ -210,5 +354,68 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Logo Animations */
+@keyframes iconBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes dotScale {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.9;
+  }
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg) translateX(0);
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes shimmerActive {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
   }
 }
